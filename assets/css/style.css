@@ -14,7 +14,7 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: lightskyblue;
 }
 
 .wrapper {
@@ -31,7 +31,7 @@ header {
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: lightgray;
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
@@ -46,12 +46,20 @@ header {
   content: " ";
   display: block;
   width: 100%;
-  background: #e7e9eb;
+  background: black;
   height: 2px;
 }
 
 .card-body {
   min-height: 100px;
+}
+.card-body textarea { /* added new styles for textarea background and font color */
+  background-color: grey;
+  color: white;
+}
+
+::placeholder { /* added the placeholder in textarea to white. */
+  color: white;
 }
 
 .card-footer {

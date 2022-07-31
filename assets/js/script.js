@@ -1,13 +1,13 @@
-// Assignment code here
+// Assignment code here / elements using both document.getElementByID and document.querySelector
 var lengthEl = document.getElementById("length");
 var lowerEl = document.getElementById("lowercase");
 var upperEl = document.getElementById("uppercase");
 var numberEl = document.getElementById("numbers");
 var symbolEl = document.getElementById("symbols");
-var generateEl = document.getElementById("generatebtn");
+var generateEl = document.querySelector("#btn");
 var passwordText = document.querySelector("#password");
 
-//create a function that contains 4 functions. 
+// Turn 4 random functions into object
 var randomGen = {
   lower: getRandomLower,
   upper: getRandomUpper,
@@ -15,40 +15,38 @@ var randomGen = {
   symbol: getRandomSymbol,
 }
 
-/* Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-
-
-  passwordText.value = password;
-
-}*/
 
 // Add event listener to generate button
 generatebtn.addEventListener("click", () => {
-    var length = +lengthEl.value;
-    var hasLower = lowerEl.checked;
-    var hasUpper = upperEl.checked;
-    var hasNumber = numberEl.checked;
-    var hasSymbol = symbolEl.checked;
+    var length = +lengthEl.value; //create a variable for element lengthEl using unary plus operator to change from string to number
+    var hasLower = lowerEl.checked; // create a variable for element lowerEL and checked property either true or false
+    var hasUpper = upperEl.checked; // create a variable for element upperEL and checked property either true or false
+    var hasNumber = numberEl.checked; // create a variable for element numberEL and checked property either true or false
+    var hasSymbol = symbolEl.checked; // create a variable for element symbolEL and checked property either true or false
 
-    passwordText.innerText = generatePwd(hasLower, hasUpper,  hasNumber, hasSymbol, length);
+    //pass the elements value true/false to passwordText.innerText
+    passwordText.innerText = password(hasLower, hasUpper,  hasNumber, hasSymbol, length); 
 
 });
 
 //Start generate the password included the 4 random functions, array, loop.
-function generatePwd(lower, upper, number, symbol, length) {
-  let generatedPwd = '';
-  var typesCount = lower + upper + number + symbol;
-  var typeArray = [{lower}, {upper}, {number}, {symbol}].filter(item=> Object.values(item)[0]);
+function password(lower, upper, number, symbol, length) {
 
-  if(typesCount == 0) {
+  let generatedPwd = ''; // initalize variable and set string to empty 
+
+  var typesCount = lower + upper + number + symbol; // variable for the number of checked items
+  var typeArray = [ //create a array variable of checked item. bracket
+    {lower}, 
+    {upper}, 
+    {number}, 
+    {symbol}].filter(item=> Object.values(item)[0]); //filter out the unchecked item (false)
+
+    // If all options are unchecked and stop the generate and return to nothing.
+  if(typesCount == 0) { 
     return "";
   } 
 
+  //loop over the length of character for each type
 for(let i=0; i<length; i+=typesCount) {
   typeArray.forEach(type => {
     var funName = Object.keys(type) [0];
@@ -56,29 +54,27 @@ for(let i=0; i<length; i+=typesCount) {
   });
 }
 
-var officalPwd = generatedPwd.slice(0, length);
+// add the end of password generate to final officalPwd then return. GeneratedPwd will come with an extra character and slice to match correct length.
+var officalPwd = generatedPwd.slice(0, length); 
 
 return officalPwd;
 }
 
-//math.random to select the random number with demical. 
-//added math.floor to round up the demical number.
+//math.random to select the random numbers with demical. 
+//added math.floor to round up the demical numbers.
 
 function getRandomLower() { //random function for lowercase chacaters
   var lowerAlphabet = "abcdefghijklmnopqrstuvwxyz"
   return lowerAlphabet[Math.floor(Math.random() * lowerAlphabet.length)];
 }
-
 function getRandomUpper() { //random function for uppercase chacaters
   var upperAlphabet = "ABCEDFGHIJKLMNOPQRSTUVWXYZ"
   return upperAlphabet[Math.floor(Math.random() * upperAlphabet.length)];
 } 
-
 function getRandomNumber() { //random function for numeric chacaters
   var numeric = "0123456789"
   return numeric[Math.floor(Math.random() * numeric.length)];
 }
-
 function getRandomSymbol() { //random function for symbol chacaters 
   var symbol = "!@#$%^&*()<>?,.+"
   return symbol[Math.floor(Math.random() * symbol.length)];
