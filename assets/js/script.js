@@ -15,6 +15,16 @@ var randomGen = {
   symbol: getRandomSymbol,
 }
 
+/*function counterChecker() {
+  if(lengthEl > 8 || lengthEl < 128) {
+    alert("Please input the number of length between 8 to 128 characters!");
+
+    return false;
+  } else {
+    return true;
+    }
+    console.log(counterChecker);
+}*/
 
 // Add event listener to generate button
 generatebtn.addEventListener("click", () => {
@@ -32,7 +42,7 @@ generatebtn.addEventListener("click", () => {
 //Start generate the password included the 4 random functions, array, loop.
 function password(lower, upper, number, symbol, length) {
 
-  let generatedPwd = ''; // initalize variable and set string to empty 
+  let generatedPwd = ''; // initialize variable and set string to empty 
 
   var typesCount = lower + upper + number + symbol; // variable for the number of checked items
   var typeArray = [ //create a array variable of checked item. bracket
@@ -60,22 +70,22 @@ var officalPwd = generatedPwd.slice(0, length);
 return officalPwd;
 }
 
-//math.random to select the random numbers with demical. 
-//added math.floor to round up the demical numbers.
+//math.random to select the random numbers with decimal. 
+//added math.floor to round up the decimal numbers.
 
-function getRandomLower() { //random function for lowercase chacaters
+function getRandomLower() { //random function for lowercase characters
   var lowerAlphabet = "abcdefghijklmnopqrstuvwxyz"
   return lowerAlphabet[Math.floor(Math.random() * lowerAlphabet.length)];
 }
-function getRandomUpper() { //random function for uppercase chacaters
+function getRandomUpper() { //random function for uppercase characters
   var upperAlphabet = "ABCEDFGHIJKLMNOPQRSTUVWXYZ"
   return upperAlphabet[Math.floor(Math.random() * upperAlphabet.length)];
 } 
-function getRandomNumber() { //random function for numeric chacaters
+function getRandomNumber() { //random function for numeric characters
   var numeric = "0123456789"
   return numeric[Math.floor(Math.random() * numeric.length)];
 }
-function getRandomSymbol() { //random function for symbol chacaters 
+function getRandomSymbol() { //random function for symbol characters 
   var symbol = "!@#$%^&*()<>?,.+"
   return symbol[Math.floor(Math.random() * symbol.length)];
 }

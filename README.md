@@ -15,3 +15,6 @@ The purpose of this page is to generate the password with options:
 
 ## Screenshot
 ![Screenshot](./assets/images/screen_capture_module3.png)
+
+## Github Page Link
+Click [here](https://jlara65.github.io/password-generator/) to generate your password.
