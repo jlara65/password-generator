@@ -71,6 +71,19 @@ header {
   display: block;
   clear: both;
 }
+.options { /* added new styles for options section that contains password length box, checkboxes for options */
+  border: 2px outset black;
+  padding: 5px;
+}
+.option { /* styles for the checkboxes options and input length box */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+.option p { /* added bold for the <p> in the option section */
+  font-weight: bold;
+}
 
 .btn {
   border: none;
