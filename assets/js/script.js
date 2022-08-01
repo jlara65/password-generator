@@ -28,11 +28,18 @@ var randomGen = {
 
 // Add event listener to generate button
 generatebtn.addEventListener("click", () => {
+  
     var length = +lengthEl.value; //create a variable for element lengthEl using unary plus operator to change from string to number
     var hasLower = lowerEl.checked; // create a variable for element lowerEL and checked property either true or false
     var hasUpper = upperEl.checked; // create a variable for element upperEL and checked property either true or false
     var hasNumber = numberEl.checked; // create a variable for element numberEL and checked property either true or false
     var hasSymbol = symbolEl.checked; // create a variable for element symbolEL and checked property either true or false
+
+    if (length >= 8 && length <= 128) { // verify if length input is in range
+    } else {
+      alert("Please input the number of length between 8 to 128 characters!");
+      return generateEl;
+    }
 
     //pass the elements value true/false to passwordText.innerText
     passwordText.innerText = password(hasLower, hasUpper,  hasNumber, hasSymbol, length); 
