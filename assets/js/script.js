@@ -15,17 +15,6 @@ var randomGen = {
   symbol: getRandomSymbol,
 }
 
-/*function counterChecker() {
-  if(lengthEl > 8 || lengthEl < 128) {
-    alert("Please input the number of length between 8 to 128 characters!");
-
-    return false;
-  } else {
-    return true;
-    }
-    console.log(counterChecker);
-}*/
-
 // Add event listener to generate button
 generatebtn.addEventListener("click", () => {
   
@@ -38,9 +27,9 @@ generatebtn.addEventListener("click", () => {
     if (length >= 8 && length <= 128) { // verify if length input is in range
     } else {
       alert("Please input the number of length between 8 to 128 characters!");
-      return generateEl;
+      return generatebtn;
     }
-
+ 
     //pass the elements value true/false to passwordText.innerText
     passwordText.innerText = password(hasLower, hasUpper,  hasNumber, hasSymbol, length); 
 
